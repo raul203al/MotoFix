@@ -15,12 +15,12 @@ class LoginActivity : AppCompatActivity() {
 
         binding.loginButtonLogin.setOnClickListener{
             //TODO Sincronizar con base de datos antes de mandar a la actividad principal
-            val i : Intent = Intent(this, MainActivity::class.java)
+            val i = Intent(this, MainActivity::class.java)
             startActivity(i)
         }
 
         binding.registerButtonLogin.setOnClickListener{
-            val i : Intent = Intent(this, RegisterActivity::class.java)
+            val i = Intent(this, RegisterActivity::class.java)
             startActivity(i)
         }
     }
