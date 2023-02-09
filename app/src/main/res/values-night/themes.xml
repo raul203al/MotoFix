@@ -1,0 +1,44 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.MotoFix" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple_200</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_200</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="tituloLogin" parent="Widget.AppCompat.EditText">
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/aqua</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="inputText" parent="ThemeOverlay.Material3.TextInputEditText">
+        <item name="android:textColor">@color/lightWhite</item>
+        <item name="hintTextColor">@color/lightWhite</item>
+        <item name="android:textSize">18sp</item>
+        <item name="backgroundTint">@color/gray</item>
+    </style>
+
+    <style name="inputTextHint">
+        <item name="android:textColorHint">@color/lightWhite</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="inputTextPass" parent="ThemeOverlay.Material3.TextInputEditText">
+        <item name="android:textColor">@color/lightWhite</item>
+        <item name="hintTextColor">@color/lightWhite</item>
+        <item name="android:textSize">18sp</item>
+        <item name="backgroundTint">@color/gray</item>
+        <item name="android:inputType">textPassword</item>
+    </style>
+
+</resources>
