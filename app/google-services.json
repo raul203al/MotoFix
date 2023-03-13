@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1025352504969",
+    "project_id": "examen-jraul",
+    "storage_bucket": "examen-jraul.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1025352504969:android:c0fac9b48e888477699858",
+        "android_client_info": {
+          "package_name": "com.example.motofix"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1025352504969-6rn99vu4jfk8np5o8mq0334vcf3is0rr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnO4kcLgBFiyBXdul9nGcDtihNLOsusDo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1025352504969-6rn99vu4jfk8np5o8mq0334vcf3is0rr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import clases.DatePickerFragment
+import clases.User
 import com.example.motofix.databinding.LayoutRegisterBinding
+import com.google.firebase.firestore.FirebaseFirestore
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var binding: LayoutRegisterBinding
@@ -19,9 +21,32 @@ class RegisterActivity : AppCompatActivity() {
             if (binding.birthdayInput.text.toString() == "" || binding.emailInput.text.toString() == "" || binding.usernameInput.text.toString() == "" || binding.passInput.text.toString() == ""){
                 Toast.makeText(this, "Faltan Campos", Toast.LENGTH_LONG).show()
             }else{
-                val i = Intent(this, LoginActivity::class.java)
-                startActivity(i)
-                //TODO Guardar Usuario
+                val usuarioLogado =
+                    User(binding.usernameInput.text.toString(), binding.emailInput.text.toString(), binding.passInput.text.toString())
+                val auth: FirebaseFirestore = FirebaseFirestore.getInstance()
+                val docRef = auth.collection("usuarios").document(usuarioLogado.email)
+                val data = hashMapOf(
+                    "username" to usuarioLogado.username,
+                    "email" to usuarioLogado.email,
+                    "password" to usuarioLogado.password,
+                )
+                docRef.set(data)
+                    .addOnCompleteListener {
+                        if(it.isSuccessful){
+                            val i = Intent(this, LoginActivity::class.java)
+                            startActivity(i)
+                        }else {
+                            it.exception?.printStackTrace()
+                            Toast.makeText(
+                                this,
+                                it.exception.toString(),
+                                Toast.LENGTH_LONG
+                            ).show()
+                        }
+
+                    }
+
+
             }
         }
 

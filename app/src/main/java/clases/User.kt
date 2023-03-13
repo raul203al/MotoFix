@@ -6,48 +6,46 @@ import java.time.LocalDate
 
 class User : Parcelable {
 
-    var name:String?
-    var surname:String?
+    var username:String?
     var password: String
     var email:String
     var birthdate: LocalDate?
-    var isAdmin: Boolean = false
 
     constructor(parcel: Parcel) : this() {
-        name = parcel.readString()
-        surname = parcel.readString()
+        username = parcel.readString()
         password = parcel.readString()!!
         email = parcel.readString()!!
-        isAdmin = parcel.readByte() != 0.toByte()
     }
 
-    constructor(name: String, surname: String, email: String, password: String, bd: LocalDate, isAdmin: Boolean = false) : this(){
-        this.name=name
-        this.surname=surname
+    constructor(username : String, email: String, password: String, bd: LocalDate) : this(){
+        this.username=username
         this.password = password
         this.email=email
         this.birthdate = bd
-        this.isAdmin = isAdmin
+    }
+
+    constructor(username : String, email: String, password: String) : this(){
+        this.username=username
+        this.password = password
+        this.email=email
     }
 
     constructor(){
-        this.name= null
-        this.surname= null
+        this.username= null
         this.password = null.toString()
         this.email= null.toString()
         this.birthdate = null
     }
 
     override fun toString(): String {
-        return name + " " + surname
+        return "Usuario:" +
+                "\t" + username + "\n" + "\t" + email + "\n" + "\t" + password
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
-        parcel.writeString(name)
-        parcel.writeString(surname)
+        parcel.writeString(username)
         parcel.writeString(password)
         parcel.writeString(email)
-        parcel.writeByte(if (isAdmin) 1 else 0)
     }
 
     override fun describeContents(): Int {
