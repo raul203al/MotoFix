@@ -6,16 +6,16 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import clases.User
-import com.example.motofix.databinding.LayoutLoginBinding
+import com.example.motofix.databinding.LoginLayoutBinding
 import com.google.firebase.firestore.FirebaseFirestore
 import java.io.*
 
 class LoginActivity : ActivitySwitch() {
-    private lateinit var binding: LayoutLoginBinding
+    private lateinit var binding: LoginLayoutBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = LayoutLoginBinding.inflate(layoutInflater)
+        binding = LoginLayoutBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         try {
@@ -67,7 +67,7 @@ class LoginActivity : ActivitySwitch() {
                         val email = documentSnapshot.getString("email")
                         val pass = documentSnapshot.getString("password")
                         if (binding.passInput.text.toString().equals(pass)) {
-                            val loggedUser =
+                            loggedUser =
                                 User(username!!, email!!, pass!!)
                             this.switchScreen("MainActivity")
                         }

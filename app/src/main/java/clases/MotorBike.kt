@@ -1,10 +1,14 @@
 package clases
 
+import android.content.Context
 import android.graphics.Bitmap
+import android.media.Image
 import android.os.Parcel
 import android.os.Parcelable
+import androidx.core.content.ContextCompat
+import androidx.core.graphics.drawable.toBitmap
+import com.example.motofix.R
 import java.time.LocalDate
-import android.graphics.BitmapFactory
 
 
 class MotorBike : Parcelable {
@@ -15,7 +19,6 @@ class MotorBike : Parcelable {
     var dateEntry: LocalDate?
     var dateExit: LocalDate?
     var status: String?
-    var images: ArrayList<Bitmap>?
 
     constructor(parcel: Parcel) : this() {
         id = parcel.readString()
@@ -25,12 +28,6 @@ class MotorBike : Parcelable {
         dateEntry = LocalDate.parse(parcel.readString()!!)
         dateExit = LocalDate.parse(parcel.readString()!!)
         status = parcel.readString()
-        val size = parcel.readInt()
-        for (i in 0 until size) {
-            val byteArray = parcel.createByteArray()
-            val bitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray!!.size)
-            images?.add(bitmap)
-        }
     }
 
     constructor(
@@ -41,7 +38,6 @@ class MotorBike : Parcelable {
         dateEntry: LocalDate,
         dateExit: LocalDate,
         status: String,
-        images: ArrayList<Bitmap>
     ) {
         this.id = id
         this.owner = owner
@@ -50,20 +46,16 @@ class MotorBike : Parcelable {
         this.dateEntry = dateEntry
         this.dateExit = dateExit
         this.status = status
-        this.images = images
     }
-
     constructor() {
-        this.id = null
-        this.owner = null!!
-        this.problem = null!!
-        this.description = null!!
-        this.dateEntry = null
-        this.dateExit = null
-        this.status = null
-        this.images = null
+        this.id = "0"
+        this.owner = "Hola"
+        this.problem = "Problema"
+        this.description = "Descripcion"
+        this.dateEntry = LocalDate.now()
+        this.dateExit = LocalDate.now()
+        this.status = "Si"
     }
-
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(id)
@@ -73,11 +65,6 @@ class MotorBike : Parcelable {
         parcel.writeString(dateEntry.toString())
         parcel.writeString(dateExit.toString())
         parcel.writeString(status)
-
-        parcel.writeInt(images!!.size) // Escribir la cantidad de elementos en el ArrayList
-        for (image in images!!) {
-            image.writeToParcel(parcel, flags)
-        }
     }
 
     override fun describeContents(): Int {

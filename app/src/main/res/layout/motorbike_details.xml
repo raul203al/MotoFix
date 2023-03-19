@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="269dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/placeholder" />
+
+
+    <TextView
+        android:id="@+id/tv_owner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Owner:" />
+
+    <TextView
+        android:id="@+id/tv_problem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Problem:" />
+
+    <TextView
+        android:id="@+id/tv_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Description:" />
+
+    <TextView
+        android:id="@+id/tv_date_entry"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Date Entry:" />
+
+    <TextView
+        android:id="@+id/tv_date_exit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Date Exit:" />
+
+    <TextView
+        android:id="@+id/tv_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Status:" />
+
+</LinearLayout>
