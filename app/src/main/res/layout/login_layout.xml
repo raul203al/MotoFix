@@ -38,7 +38,7 @@
             android:orientation="vertical">
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/emailContainer"
+                android:id="@+id/userContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -48,12 +48,12 @@
 
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/emailInput"
+                    android:id="@+id/userInput"
                     style="@style/fieldInputText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:cursorVisible="false"
-                    android:hint="@string/email" />
+                    android:hint="Usuario" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout

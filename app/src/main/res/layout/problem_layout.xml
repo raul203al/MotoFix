@@ -25,9 +25,10 @@
             <TextView
                 android:id="@+id/txtLogin"
                 style="@style/tittleText"
+                android:textSize="22sp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/registrer" />
+                android:text="Registrar Problema" />
         </LinearLayout>
 
         <LinearLayout
@@ -38,21 +39,21 @@
             android:orientation="vertical">
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/usernameContainer_Register"
+                android:id="@+id/problemIdContainer"
                 style="@style/textContainer"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/usernameInput"
+                    android:id="@+id/problemIdInput"
                     style="@style/fieldInputText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/userField" />
+                    android:hint="Id" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/emailContainer"
+                android:id="@+id/problemOwnerContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -62,41 +63,81 @@
 
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/emailInput"
+                    android:id="@+id/problemOwnerInput"
                     style="@style/fieldInputText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:cursorVisible="false"
-                    android:hint="@string/email" />
+                    android:hint="Dueno" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/passwordContainer"
-                style="@style/passContainer"
+                android:id="@+id/problemContainer"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textColorHint="@color/lightWhite"
+                app:boxStrokeColor="@color/aqua"
+                app:hintTextColor="@color/aqua">
+
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/passInput"
-                    style="@style/fieldInputTextPass"
+                    android:id="@+id/problemInput"
+                    style="@style/fieldInputText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:cursorVisible="false"
-                    android:hint="@string/passField" />
+                    android:hint="Problema" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/birthdayContainer_Register"
+                android:id="@+id/problemDescriptionContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textColorHint="@color/lightWhite"
+                app:boxStrokeColor="@color/aqua"
+                app:hintTextColor="@color/aqua">
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/problemDescriptionInput"
+                    style="@style/fieldInputText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:cursorVisible="false"
+                    android:hint="Descripcion" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/problemDateEntryContainer"
                 style="@style/textContainer"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/birthdayInput"
+                    android:id="@+id/problemDateEntryInput"
                     style="@style/fieldInputText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/birthdayField"
+                    android:hint="Fecha de Entrada"
+                    android:inputType="date"
+                    android:focusable="false"
+                    android:clickable="true"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/problemDateExitContainer"
+                style="@style/textContainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/problemDateExitInput"
+                    style="@style/fieldInputText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Fecha de Salida"
                     android:inputType="date"
                     android:focusable="false"
                     android:clickable="true"/>
@@ -109,19 +150,19 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/registerButton_Register"
+                    android:id="@+id/problemBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:backgroundTint="@color/green"
-                    android:text="@string/registrer"
+                    android:text="Registrar"
                     android:textColor="@color/lightWhite"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <Button
-                    android:id="@+id/loginButton_Register"
+                    android:id="@+id/back_btn"
                     style="@style/buttonRegister"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -133,4 +174,3 @@
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-

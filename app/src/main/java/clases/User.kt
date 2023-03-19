@@ -2,14 +2,21 @@ package clases
 
 import android.os.Parcel
 import android.os.Parcelable
-import java.time.LocalDate
 
+/**
+ * Clase para representar un usuario.
+ *
+ * @property username El nombre de usuario.
+ * @property password La contraseña del usuario.
+ * @property email El correo electrónico del usuario.
+ * @property bd La fecha de nacimiento del usuario.
+ */
 class User : Parcelable {
 
     var username:String?
     var password: String
     var email:String
-    var birthdate: LocalDate?
+    var bd: String?
 
     constructor(parcel: Parcel) : this() {
         username = parcel.readString()
@@ -17,11 +24,11 @@ class User : Parcelable {
         email = parcel.readString()!!
     }
 
-    constructor(username : String, email: String, password: String, bd: LocalDate) : this(){
+    constructor(username: String, email: String, password: String, bd: String?) : this(){
         this.username=username
         this.password = password
         this.email=email
-        this.birthdate = bd
+        this.bd = bd
     }
 
     constructor(username : String, email: String, password: String) : this(){
@@ -30,22 +37,25 @@ class User : Parcelable {
         this.email=email
     }
 
+    /**
+     * Constructor vacío.
+     */
     constructor(){
         this.username= null
         this.password = null.toString()
         this.email= null.toString()
-        this.birthdate = null
+        this.bd = null
     }
 
     override fun toString(): String {
-        return "Usuario:" +
-                "\t" + username + "\n" + "\t" + email + "\n" + "\t" + password
+        return "Usuario:" + username
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(username)
         parcel.writeString(password)
         parcel.writeString(email)
+        parcel.writeString(bd.toString())
     }
 
     override fun describeContents(): Int {

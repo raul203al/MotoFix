@@ -71,4 +71,10 @@
         <item name="android:layout_weight">1</item>
         <item name="android:backgroundTint">@color/red</item>
     </style>
+    <style name="Theme.MotoFix.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.MotoFix.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.MotoFix.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

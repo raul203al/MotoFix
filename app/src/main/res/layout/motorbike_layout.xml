@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/contenedorElemento"
     android:layout_width="match_parent"
+    android:background="@drawable/rounder_corner"
     android:layout_height="wrap_content">
 
     <ImageView
@@ -24,47 +25,68 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView"
+            android:textColor="@color/lightWhite"
             android:textSize="23dp"
-            android:textStyle="bold" />
+            android:textStyle="italic" />
 
         <TextView
             android:id="@+id/owner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView"
-            android:textSize="18dp"
-            android:textStyle="italic" />
+            android:textColor="@color/lightWhite"
 
-        <TextView
-            android:id="@+id/nombreApellidos2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView"
             android:textSize="23dp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/email2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView"
-            android:textSize="18dp"
             android:textStyle="italic" />
 
         <TextView
-            android:id="@+id/nombreApellidos"
+            android:id="@+id/problem"
+            android:textColor="@color/lightWhite"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView"
             android:textSize="23dp"
-            android:textStyle="bold" />
+            android:textStyle="italic" />
 
         <TextView
-            android:id="@+id/email"
+            android:id="@+id/description"
+            android:textColor="@color/lightWhite"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView"
-            android:textSize="18dp"
+            android:textSize="23dp"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/dateEntry"
+            android:textColor="@color/lightWhite"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textSize="23dp"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/dateExit"
+            android:textColor="@color/lightWhite"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textSize="23dp"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/status"
+            android:textColor="@color/lightWhite"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textSize="23dp"
             android:textStyle="italic" />
 
 
