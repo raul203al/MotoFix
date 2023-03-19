@@ -1,21 +1,16 @@
 package com.example.motofix
 
 import android.content.Context
-import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.os.Environment
 import android.util.Log
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import clases.User
 import com.example.motofix.databinding.LayoutLoginBinding
 import com.google.firebase.firestore.FirebaseFirestore
 import java.io.*
-import java.nio.file.FileSystems
-import java.nio.file.Files
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : ActivitySwitch() {
     private lateinit var binding: LayoutLoginBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -72,21 +67,15 @@ class LoginActivity : AppCompatActivity() {
                         val email = documentSnapshot.getString("email")
                         val pass = documentSnapshot.getString("password")
                         if (binding.passInput.text.toString().equals(pass)) {
-                            val usuarioLogado =
+                            val loggedUser =
                                 User(username!!, email!!, pass!!)
-                            val i = Intent(this, MainActivity::class.java)
-                            val bundle: Bundle = Bundle()
-                            bundle.putParcelable("usuarioLogado", usuarioLogado);
-                            i.putExtras(bundle)
-                            startActivity(i)
+                            this.switchScreen("MainActivity")
                         }
 
                     } else {
                         Toast.makeText(this, "Error", Toast.LENGTH_LONG).show()
 
                     }
-                    //TODO Sincronizar con base de datos antes de mandar a la actividad principal
-
                 }
 
 
@@ -94,8 +83,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         binding.registerButtonLogin.setOnClickListener {
-            val i = Intent(this, RegisterActivity::class.java)
-            startActivity(i)
+            this.switchScreen("RegisterActivity")
         }
     }
 }

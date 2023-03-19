@@ -12,6 +12,9 @@
         android:theme="@style/Theme.MotoFix"
         tools:targetApi="31">
         <activity
+            android:name=".ActivitySwitch"
+            android:exported="false" />
+        <activity
             android:name=".Preferencias"
             android:exported="false" />
         <activity
