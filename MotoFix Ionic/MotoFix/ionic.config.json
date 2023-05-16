@@ -1,0 +1,7 @@
+{
+  "name": "MotoFix",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
