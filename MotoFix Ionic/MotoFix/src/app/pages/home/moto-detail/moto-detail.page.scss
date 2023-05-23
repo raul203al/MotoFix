@@ -1,0 +1,72 @@
+.toolbar-container {
+    height: 70px;
+}
+
+.toolbar-container {
+    --background: #04f053 !important;
+}
+
+.fab-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.incidentButton,
+.taskButton {
+    min-height: 50px;
+    min-width: 40%;
+    margin-top: 1vh;
+    margin-left: 1%;
+    background-color: #e79e16;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 15px;
+}
+
+.taskButton {
+    margin-left: 17%;
+}
+
+ion-content::part(background) {
+    background-color: #c02929;
+    /* Cambiar por el color deseado */
+}
+
+.detailMode {
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+}
+
+ion-input {
+    text-align: center;
+}
+
+.preview {
+    display: inline;
+
+    img {
+        margin-right: 10px;
+        margin-left: 5px;
+        max-width: 52px;
+        max-height: 300px;
+    }
+}
+
+.readonly {
+    /* Estilos para el modo de solo lectura */
+    color: #04f053;
+}
+
+.editable {
+    /* Estilos para el modo editable */
+    color: #e79e16;
+}
+
+.carrusel{
+    margin-top: 2%;
+    max-width: 90%;
+    max-height: 80%;
+}
