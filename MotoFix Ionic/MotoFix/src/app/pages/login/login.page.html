@@ -1,68 +1,33 @@
 <ion-header>
   <title>Slide Navbar</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet" />
 </ion-header>
 <ion-content>
-  <div class="main">
-    <input type="checkbox" id="chk" aria-hidden="true" />
 
+  <div class="main">
+    <input type="checkbox" id="chk" aria-hidden="true" #chk/>
     <div class="signup">
-      <form>
-        <label for="chk" aria-hidden="true">Sign up</label>
-        <ion-input
-          fill="outline"
-          label="Usuario"
-          labelPlacement="floating"
-          type="text"
-          name="txt"
-          required=""
-        />
-        <ion-input
-          fill="outline"
-          label="Email"
-          labelPlacement="floating"
-          type="email"
-          name="email"
-          required=""
-        />
-        <ion-input
-          fill="outline"
-          label="Contraeña"
-          labelPlacement="floating"
-          type="password"
-          name="pswd"
-          required=""
-        />
-        <ion-button (click)="login()">Sign up</ion-button>
+      <form [formGroup]="loginForm">
+        <label for="chk" aria-hidden="true">Login</label>
+        <ion-input fill="outline" label="Usuario" labelPlacement="floating" type="email" name="email"
+          placeholder="Email" formControlName="user" />
+        <ion-input fill="outline" label="Contraeña" labelPlacement="floating" type="password" name="pswd"
+          placeholder="Password" formControlName="password" />
+        <ion-button (click)="login()">Login</ion-button>
       </form>
     </div>
 
     <div class="login">
       <form [formGroup]="loginForm">
-        <label for="chk" aria-hidden="true">Login</label>
-        <ion-input
-          fill="outline"
-          label="Usuario"
-          labelPlacement="floating"
-          type="email"
-          name="email"
-          placeholder="Email"
-          formControlName="user"
-        />
-        <ion-input
-          fill="outline"
-          label="Contraeña"
-          labelPlacement="floating"
-          type="password"
-          name="pswd"
-          placeholder="Password"
-          formControlName="password"
-        />
-        <ion-button (click)="login()">Login</ion-button>
+        <label for="chk" aria-hidden="true">Sign up</label>
+        <ion-input fill="outline" label="Usuario" labelPlacement="floating" type="text" name="txt" required="" formControlName="userRegister" />
+        <!-- <ion-input fill="outline" label="Email" labelPlacement="floating" type="email" name="email" required="" /> -->
+        <ion-input fill="outline" label="Contraeña" labelPlacement="floating" type="password" name="pswd" required="" formControlName="passwordRegister" />
+        <ion-button (click)="createAccount()">Sign up</ion-button>
       </form>
     </div>
+
+
   </div>
+
 </ion-content>

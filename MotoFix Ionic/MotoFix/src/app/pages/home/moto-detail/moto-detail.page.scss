@@ -3,7 +3,7 @@
 }
 
 .toolbar-container {
-    --background: #04f053 !important;
+    --background: #302b63 !important;
 }
 
 .fab-container {
@@ -19,7 +19,7 @@
     min-width: 40%;
     margin-top: 1vh;
     margin-left: 1%;
-    background-color: #e79e16;
+    background-color: #845EC2;
     text-align: center;
     font-weight: bold;
     border-radius: 15px;
@@ -30,7 +30,7 @@
 }
 
 ion-content::part(background) {
-    background-color: #c02929;
+	background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
     /* Cambiar por el color deseado */
 }
 
@@ -40,8 +40,37 @@ ion-content::part(background) {
     flex-flow: column;
 }
 
-ion-input {
-    text-align: center;
+ion-input, ion-textarea {
+    margin-top: 2%;
+    color: white;
+    text-align: left;
+}
+
+ion-label {
+    color: #FBEAFF;
+}
+
+ion-icon {
+    color: #FBEAFF;
+}
+
+ion-content {
+    display: flex;
+    align-items: center;
+}
+
+ion-card-header {
+    background-color: #B39CD0;
+
+}
+
+.cardInfo {
+    background-color: #B39CD0;
+}
+
+.cardImage img {
+    height: fit-content;
+    padding: 1%;
 }
 
 .preview {
@@ -65,8 +94,12 @@ ion-input {
     color: #e79e16;
 }
 
-.carrusel{
+.carrusel {
     margin-top: 2%;
     max-width: 90%;
     max-height: 80%;
+}
+
+ion-buttons{
+    margin: 0 5%;
 }

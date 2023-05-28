@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
-import { SQLiteObject } from '@ionic-native/sqlite';
-import { SQLite } from '@ionic-native/sqlite/ngx';
+import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
+import { User } from '../clases/common-entities';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
-export class DatabaseService {
+export class SqliteService {
+
   database!: SQLiteObject;
 
   constructor(private db: SQLite) {
@@ -54,4 +55,35 @@ export class DatabaseService {
       console.error('Error al insertar el usuario en la base de datos', error);
     }
   }
+
+  async getUser(username: String, password: String): Promise<User[]> {
+    return new Promise((resolve, reject) => {
+
+      this.database.executeSql('SELECT username, password FROM users WHERE username=? AND password=?', [username, password]).then((data) => {
+        let dataArray = [];
+        for (let i = 0; i < data.rows.length; i++) {
+          dataArray.push(data.rows.item(i));
+        }
+        resolve(dataArray);
+      }, (error) => {
+        reject(error);
+      });
+    })
+  }
+
+  async getUsers(): Promise<User[]> {
+    return new Promise((resolve, reject) => {
+
+      this.database.executeSql('SELECT username, password FROM users', []).then((data) => {
+        let dataArray = [];
+        for (let i = 0; i < data.rows.length; i++) {
+          dataArray.push(data.rows.item(i));
+        }
+        resolve(dataArray);
+      }, (error) => {
+        reject(error);
+      });
+    })
+  }
 }
+

@@ -1,175 +1,118 @@
-<ion-header> </ion-header>
+<ion-header>
+  <ion-toolbar class="topbar-container">
+    <ion-button class="backButton" (click)="logout()">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
 
 <ion-content>
-  <ion-refresher slot="" (ionRefresh)="handleRefresh($event)">
-    <ion-refresher-content></ion-refresher-content>
-  </ion-refresher>
-  
-  <ion-card>
+
+  <ion-card (click)="detail()">
     <div class="cardInfo">
       <div class="cardImage">
-        <img
-          alt="Silhouette of mountains"
-          src="https://ionicframework.com/docs/img/demos/card-media.png"
-        />
+        <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
       </div>
       <div class="cardContent">
         <ion-card-header>
           <ion-card-title>Problema</ion-card-title>
           <ion-card-subtitle>Matricula</ion-card-subtitle>
+
+          <ion-card-subtitle>F. Entrada</ion-card-subtitle>
+          <ion-card-subtitle>F. Salida</ion-card-subtitle>
         </ion-card-header>
         <ion-card-content>
           ...
         </ion-card-content>
       </div>
     </div>
-  
-    <ion-toolbar class="cardToolbar">
-        <ion-button class="edit" slot="start">
-          <ion-label>Editar</ion-label>
-          <ion-icon class="delete" name="pencil"></ion-icon>
-        </ion-button>
-  
-        <ion-button class="delete" slot="end">
-          <ion-label>Eliminar</ion-label>
-          <ion-icon name="trash"></ion-icon>
-        </ion-button>
-    </ion-toolbar>
   </ion-card>
 
   <ion-card>
     <div class="cardInfo">
       <div class="cardImage">
-        <img
-          alt="Silhouette of mountains"
-          src="https://ionicframework.com/docs/img/demos/card-media.png"
-        />
+        <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
       </div>
       <div class="cardContent">
         <ion-card-header>
           <ion-card-title>Problema</ion-card-title>
           <ion-card-subtitle>Matricula</ion-card-subtitle>
+
+          <ion-card-subtitle>F. Entrada</ion-card-subtitle>
+          <ion-card-subtitle>F. Salida</ion-card-subtitle>
         </ion-card-header>
         <ion-card-content>
           ...
         </ion-card-content>
       </div>
     </div>
-  
-    <ion-toolbar class="cardToolbar">
-        <ion-button class="edit" slot="start">
-          <ion-label>Editar</ion-label>
-          <ion-icon class="delete" name="pencil"></ion-icon>
-        </ion-button>
-  
-        <ion-button class="delete" slot="end">
-          <ion-label>Eliminar</ion-label>
-          <ion-icon name="trash"></ion-icon>
-        </ion-button>
-    </ion-toolbar>
   </ion-card>
 
   <ion-card>
     <div class="cardInfo">
       <div class="cardImage">
-        <img
-          alt="Silhouette of mountains"
-          src="https://ionicframework.com/docs/img/demos/card-media.png"
-        />
+        <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
       </div>
       <div class="cardContent">
         <ion-card-header>
           <ion-card-title>Problema</ion-card-title>
           <ion-card-subtitle>Matricula</ion-card-subtitle>
+
+          <ion-card-subtitle>F. Entrada</ion-card-subtitle>
+          <ion-card-subtitle>F. Salida</ion-card-subtitle>
         </ion-card-header>
         <ion-card-content>
           ...
         </ion-card-content>
       </div>
     </div>
-  
-    <ion-toolbar class="cardToolbar">
-        <ion-button class="edit" slot="start">
-          <ion-label>Editar</ion-label>
-          <ion-icon class="delete" name="pencil"></ion-icon>
-        </ion-button>
-  
-        <ion-button class="delete" slot="end">
-          <ion-label>Eliminar</ion-label>
-          <ion-icon name="trash"></ion-icon>
-        </ion-button>
-    </ion-toolbar>
   </ion-card>
 
   <ion-card>
     <div class="cardInfo">
       <div class="cardImage">
-        <img
-          alt="Silhouette of mountains"
-          src="https://ionicframework.com/docs/img/demos/card-media.png"
-        />
+        <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
       </div>
       <div class="cardContent">
         <ion-card-header>
           <ion-card-title>Problema</ion-card-title>
           <ion-card-subtitle>Matricula</ion-card-subtitle>
+
+          <ion-card-subtitle>F. Entrada</ion-card-subtitle>
+          <ion-card-subtitle>F. Salida</ion-card-subtitle>
         </ion-card-header>
         <ion-card-content>
           ...
         </ion-card-content>
       </div>
     </div>
-  
-    <ion-toolbar class="cardToolbar">
-        <ion-button class="edit" slot="start">
-          <ion-label>Editar</ion-label>
-          <ion-icon class="delete" name="pencil"></ion-icon>
-        </ion-button>
-  
-        <ion-button class="delete" slot="end">
-          <ion-label>Eliminar</ion-label>
-          <ion-icon name="trash"></ion-icon>
-        </ion-button>
-    </ion-toolbar>
+
   </ion-card>
 
   <ion-card>
     <div class="cardInfo">
       <div class="cardImage">
-        <img
-          alt="Silhouette of mountains"
-          src="https://ionicframework.com/docs/img/demos/card-media.png"
-        />
+        <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
       </div>
       <div class="cardContent">
         <ion-card-header>
           <ion-card-title>Problema</ion-card-title>
           <ion-card-subtitle>Matricula</ion-card-subtitle>
+          <ion-card-subtitle>F. Entrada</ion-card-subtitle>
+          <ion-card-subtitle>F. Salida</ion-card-subtitle>
         </ion-card-header>
         <ion-card-content>
           ...
         </ion-card-content>
       </div>
     </div>
-  
-    <ion-toolbar class="cardToolbar">
-        <ion-button class="edit" slot="start">
-          <ion-label>Editar</ion-label>
-          <ion-icon class="delete" name="pencil"></ion-icon>
-        </ion-button>
-  
-        <ion-button class="delete" slot="end">
-          <ion-label>Eliminar</ion-label>
-          <ion-icon name="trash"></ion-icon>
-        </ion-button>
-    </ion-toolbar>
   </ion-card>
 </ion-content>
 
 <ion-footer>
   <div class="fab-container">
     <ion-fab>
-      <ion-fab-button>
+      <ion-fab-button (click)="newIncident()">
         <ion-icon name="add"></ion-icon>
       </ion-fab-button>
     </ion-fab>

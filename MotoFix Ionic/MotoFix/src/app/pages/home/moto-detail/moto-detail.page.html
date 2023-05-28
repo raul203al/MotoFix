@@ -1,55 +1,65 @@
-<ion-header>
-
+<ion-header *ngIf="!detailMode && !isNew">
   <ion-toolbar class="toolbar-container">
-      <ion-button slot="start">
-        <ion-icon name="back"></ion-icon>
-      </ion-button>
+    <ion-button slot="start" (click)="editOn()">
+      <ion-icon name="back"></ion-icon>
+    </ion-button>
   </ion-toolbar>
-
 </ion-header>
 
 <ion-content>
   <div class="detailMode">
 
     <div class="carrusel">
-      <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
-      <div class="preview">
+      <!-- <div class="preview">
         <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
         <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
         <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
         <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
         <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
-      </div>
+      </div> -->
     </div>
 
-    <ion-input [ngClass]="{'readonly': detailMode, 'editable': !detailMode}" [readonly]="detailMode" label="Matricula: "
-      fill="outline" placeholder="Matricula" type="text" name="txt" required="" />
-    <ion-input [ngClass]="{'readonly': detailMode, 'editable': !detailMode}" [readonly]="detailMode" label="Problema: "
-      fill="outline" placeholder="Problema" type="text" name="txt" required="" />
-    <ion-input [ngClass]="{'readonly': detailMode, 'editable': !detailMode}" [readonly]="detailMode"
-      label="Descripcion: " fill="outline" placeholder="Descripcion" type="text" name="txt" required="" />
-    <ion-input [ngClass]="{'readonly': detailMode, 'editable': !detailMode}" [readonly]="detailMode" label="Modelo: "
-      fill="outline" placeholder="Modelo" type="text" name="txt" required="" />
-    <ion-input [ngClass]="{'readonly': detailMode, 'editable': !detailMode}" [readonly]="detailMode" label="Precio: "
-      fill="outline" placeholder="Precio" type="text" name="txt" required="" />
-    <ion-input [ngClass]="{'readonly': detailMode, 'editable': !detailMode}" [readonly]="detailMode"
-      label="Fecha Entrada: " fill="outline" placeholder="Fecha Entrada" type="text" name="txt" required="" />
-    <ion-input [ngClass]="{'readonly': detailMode, 'editable': !detailMode}" [readonly]="detailMode"
-      label="Fecha Salida: " fill="outline" placeholder="Fecha Salida" type="text" name="txt" required="" />
+    <ion-card>
+      <div class="cardInfo">
+        <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+      </div>
+      <div class="cardContent">
+        <ion-card-header>
+          <ion-input [readonly]="detailMode" label="Matricula: " fill="outline" al type="text" name="txt" required="" />
+          <ion-input [readonly]="detailMode" label="Modelo: " fill="outline" type="text" name="txt" required="" />
+          <ion-input [readonly]="detailMode" label="Problema: " fill="outline" type="text" name="txt" required="" />
+        </ion-card-header>
+        <ion-card-header>
+          <ion-textarea [readonly]="detailMode" label="Descripcion: " fill="outline" type="text" name="txt"
+            required="" />
+          <ion-input [readonly]="detailMode" label="Precio: " fill="outline" type="text" name="txt" required="" />
+        </ion-card-header>
+        <ion-card-header>
+          <ion-input [readonly]="detailMode" label="F. Entrada: " fill="outline" type="text" name="txt" required="" />
+          <ion-input [readonly]="detailMode" label="F. Salida: " fill="outline" type="text" name="txt" required="" />
+        </ion-card-header>
+      </div>
+    </ion-card>
   </div>
 
 </ion-content>
 <ion-footer>
   <ion-toolbar class="toolbar-container">
     <ion-buttons>
-      <ion-button class="incidentButton" slot="start" (click)="editOn()">
-        <ion-label>Incidencias</ion-label>
-        <ion-icon name="build"></ion-icon>
+      <ion-button *ngIf="isNew" class="incidentButton" slot="start" (click)="editOn()">
+        <ion-label>Añadir</ion-label>
       </ion-button>
 
-      <ion-button class="taskButton" slot="end">
-        <ion-label>Tareas</ion-label>
-        <ion-icon name="mail"></ion-icon>
+      <ion-button *ngIf="!isNew && detailMode" class="incidentButton" slot="start" (click)="editOn()">
+        <ion-label>Editar</ion-label>
+      </ion-button>
+
+      <ion-button *ngIf="!isNew && !detailMode" class="incidentButton" slot="start" (click)="editOn()">
+        <ion-label>Actualizar</ion-label>
+      </ion-button>
+
+      <ion-button class="taskButton" (click)="closeModal()" slot="end">
+        <ion-label>Salir</ion-label>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
