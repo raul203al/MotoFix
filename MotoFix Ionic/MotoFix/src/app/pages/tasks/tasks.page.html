@@ -28,12 +28,8 @@
   <ion-card *ngFor="let i of this.tasks">
     <div class="cardContent">
       <ion-card-header>
-        <ion-item>
-          <ion-checkbox [(ngModel)]="i.isChecked" (ionChange)="updateTask(i)" labelPlacement="start">{{i.task}}</ion-checkbox>
-          <ion-button (click)="deleteTask(i)" class="deleteButton">
-            <ion-icon name="trash-outline"></ion-icon>
-          </ion-button>
-        </ion-item>
+        <ion-checkbox style="display: flex;" (ionChange)="updateTask(i)" labelPlacement="start">{{i.task}}</ion-checkbox>
+        <ion-button style="display: flex;"></ion-button>
       </ion-card-header>
     </div>
   </ion-card>
@@ -53,7 +49,7 @@
     </div>
   </ion-card>
 
-
+  
 </ion-content>
 <ion-footer>
   <div class="fab-container">

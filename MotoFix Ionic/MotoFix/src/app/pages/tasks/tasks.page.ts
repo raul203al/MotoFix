@@ -24,11 +24,7 @@ export class TasksPage implements OnInit {
   }
 
   logout() {
-    Swal.fire({icon: 'info', title: 'Aviso', text: 'Seguro que quiere cerrar sesion', confirmButtonText: 'Aceptar', cancelButtonText: 'Cancelar'}).then((result) => {
-      if (result.isConfirmed){
-        this.utils.navigateReplacingUrl('login')
-      }
-    })
+    this.utils.navigateReplacingUrl('login')
   }
 
   goToTasks() {
@@ -37,7 +33,8 @@ export class TasksPage implements OnInit {
   }
 
   goToIncidents() {
-    this.utils.navigateReplacingUrl('home')
+    this.utils.navigateReplacingUrl('incidents')
+
   }
 
   async getTasks() {
@@ -76,16 +73,8 @@ export class TasksPage implements OnInit {
     });
   }
 
-  deleteTask(task: Tarea) {
-    try {
-      Swal.fire({icon: 'error', title: 'Aviso de Borrado', text: '¿Seguro que quiere eliminar esta tarea?', confirmButtonText: 'Aceptar', cancelButtonText: 'Cancelar'}).then((result) => {
-        if (result.isConfirmed){
-          this.db.deleteTask(task.id);
-        }
-      })
-    } catch (error) {
-      
-    }
+  editTask() {
+
   }
 
   updateTask(task: Tarea){
@@ -102,4 +91,9 @@ export class TasksPage implements OnInit {
       
     }
   }
+
+  deleteTask() {
+
+  }
+
 }
