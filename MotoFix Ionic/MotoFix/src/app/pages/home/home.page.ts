@@ -6,6 +6,7 @@ import { Incident, Problem, UserPhoto } from 'src/app/clases/common-entities';
 import { SqliteService } from 'src/app/services/sqlite.service';
 import { CommonModule } from '@angular/common';
 import { PhotoService } from 'src/app/services/photo.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-home',
@@ -28,8 +29,11 @@ export class HomePage {
   }
 
   logout() {
-    this.utils.navigateReplacingUrl('/login');
-  }
+    Swal.fire({icon: 'info', title: 'Aviso', text: 'Seguro que quiere cerrar sesion', confirmButtonText: 'Aceptar', cancelButtonText: 'Cancelar'}).then((result) => {
+      if (result.isConfirmed){
+        this.utils.navigateReplacingUrl('login')
+      }
+    })  }
 
   goToIncidents() {
     this.utils.navigateReplacingUrl('/home');
