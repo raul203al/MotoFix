@@ -30,7 +30,7 @@
 }
 
 ion-content::part(background) {
-	background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+    background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
     /* Cambiar por el color deseado */
 }
 
@@ -40,7 +40,8 @@ ion-content::part(background) {
     flex-flow: column;
 }
 
-ion-input, ion-textarea {
+ion-input,
+ion-textarea {
     margin-top: 2%;
     color: white;
     text-align: left;
@@ -100,6 +101,19 @@ ion-card-header {
     max-height: 80%;
 }
 
-ion-buttons{
+img {
+    padding: 2%;
+    height: 250px;
+    min-width: 100%;
+    object-fit: fill;
+}
+
+ion-popover {
+    transform: translateY(-40vh);
+    bottom: -40%;
+    
+}
+
+ion-buttons {
     margin: 0 5%;
 }

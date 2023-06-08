@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
-import { User } from '../clases/common-entities';
+import { Problem, Tarea, User } from '../clases/common-entities';
 
 @Injectable({
   providedIn: 'root'
@@ -32,9 +32,14 @@ export class SqliteService {
         []
       );
       await this.database.executeSql(
-        'CREATE TABLE IF NOT EXISTS problem (id INTEGER PRIMARY KEY AUTOINCREMENT, title VARCHAR, description VARCHAR, registration VARCHAR, model VACHAR, owner VARCHAR, telephone VARCHAR, price REAL, dateEntry VARCHAR, ,dateExit VARCHAR, priority VARCHAR, image1 BLOB, image2 BLOB, image3 BLOB, image4 BLOB, image5 BLOB)',
+        'CREATE TABLE IF NOT EXISTS incidents (id INTEGER PRIMARY KEY AUTOINCREMENT,registration VARCHAR, model VACHAR, problem VARCHAR, description VARCHAR, dateEntry VARCHAR, dateExit VARCHAR, priority VARCHAR, image BLOB)',
         []
       );
+      await this.database.executeSql(
+        'CREATE TABLE IF NOT EXISTS tasks (id INTEGER PRIMARY KEY AUTOINCREMENT, task VARCHAR, isChecked INTEGER)',
+        []
+      );
+
     } catch (error) {
       console.log('Error al crear las tablas', error);
     }
@@ -85,5 +90,117 @@ export class SqliteService {
       });
     })
   }
-}
 
+
+  async newIncident(registration: String, model: String, problem: String, description: String, dateEntry: String, dateExit: String, priority: String, image: Uint8Array): Promise<void> {
+    try {
+      const db: SQLiteObject = await this.db.create({
+        name: 'database.db',
+        location: 'default',
+      });
+
+      await db.executeSql(
+        'INSERT INTO incidents (registration, model, problem, description, dateEntry, dateExit, priority, image) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+        [registration, model, problem, description, dateEntry, dateExit, priority, image]
+      )
+    } catch (error) {
+      console.error('Error al insertar el usuario en la base de datos', error);
+    }
+  }
+
+  getIncidents(): Promise<Problem[]> {
+    return new Promise((resolve, reject) => {
+
+      this.database.executeSql('SELECT * FROM incidents', []).then((data) => {
+        let dataArray = [];
+        for (let i = 0; i < data.rows.length; i++) {
+          dataArray.push(data.rows.item(i));
+        }
+        resolve(dataArray);
+      }, (error) => {
+        reject(error);
+      });
+    })
+  }
+
+  updateIncident(registration: String, model: String, problem: String, description: String, dateEntry: String, dateExit: String, priority: String, image: Uint8Array, id: number): void {
+
+    this.database.executeSql('UPDATE incidents SET registration = ?, model = ?, problem = ?, description = ?, dateEntry = ?, dateExit = ?, priority = ?, image = ? WHERE id = ?',
+      [registration, model, problem, description, dateEntry, dateExit, priority, image, id]
+    ).then((data) => {
+      let dataArray = [];
+      for (let i = 0; i < data.rows.length; i++) {
+        dataArray.push(data.rows.item(i));
+      }
+
+    })
+  }
+
+  deleteIncident(id: number): void {
+
+    this.database.executeSql('DELETE FROM incidents WHERE id=?', [id]).then((data) => {
+      let dataArray = [];
+      for (let i = 0; i < data.rows.length; i++) {
+        dataArray.push(data.rows.item(i));
+      }
+
+    })
+  }
+
+
+  async newTask(task: String, isChecked: Boolean): Promise<void> {
+    try {
+      const db: SQLiteObject = await this.db.create({
+        name: 'database.db',
+        location: 'default',
+      });
+
+      await db.executeSql(
+        'INSERT INTO tasks (task, isChecked) VALUES (?, ?)',
+        [task, isChecked]
+      )
+    } catch (error) {
+      console.error('Error al insertar el usuario en la base de datos', error);
+    }
+  }
+
+  getTasks(): Promise<Tarea[]> {
+    return new Promise((resolve, reject) => {
+
+      this.database.executeSql('SELECT * FROM tasks', []).then((data) => {
+        let dataArray = [];
+        for (let i = 0; i < data.rows.length; i++) {
+          dataArray.push(data.rows.item(i));
+        }
+        resolve(dataArray);
+      }, (error) => {
+        reject(error);
+      });
+    })
+  }
+
+  updateTask(task: String, isChecked: number, id: number): void {
+
+    this.database.executeSql('UPDATE tasks SET task = ?, isChecked = ? WHERE id = ?',
+      [task, isChecked ,id]
+    ).then((data) => {
+      let dataArray = [];
+      for (let i = 0; i < data.rows.length; i++) {
+        dataArray.push(data.rows.item(i));
+      }
+
+    })
+  }
+
+  deleteTask(id: number): void {
+
+    this.database.executeSql('DELETE FROM tasks WHERE id=?', [id]).then((data) => {
+      let dataArray = [];
+      for (let i = 0; i < data.rows.length; i++) {
+        dataArray.push(data.rows.item(i));
+      }
+
+    })
+  }
+
+}

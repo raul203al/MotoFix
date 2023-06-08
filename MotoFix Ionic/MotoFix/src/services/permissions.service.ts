@@ -9,12 +9,12 @@ export class PermissionsService {
   constructor(
     private permission: AndroidPermissions,
     private diagnostic: Diagnostic
-  ) {}
+  ) { }
 
-  async checkStorage(){
+  async checkStorage() {
     const isGranted = await this.diagnostic.getExternalStorageAuthorizationStatus();
-    
-    if (!(isGranted === this.diagnostic.permissionStatus.GRANTED)){
+
+    if (!(isGranted === this.diagnostic.permissionStatus.GRANTED)) {
       await this.requestStorage();
       return;
     }
@@ -22,12 +22,36 @@ export class PermissionsService {
     console.log('Permiso Aceptado')
   }
 
-  async requestStorage(){
+  async requestStorage() {
     this.permission.requestPermission('android.permission.WRITE_EXTERNAL_STORAGE').then(result => {
-      if (result.hasPermission){
+      if (result.hasPermission) {
         console.log('Permitido')
       }
     })
+  }
+
+  async checkCamera() {
+    const isGranted = await this.diagnostic.getCameraAuthorizationStatus();
+
+    if (!(isGranted === this.diagnostic.permissionStatus.GRANTED)) {
+      await this.requestCamera();
+      return;
+    }
+
+    console.log('Permiso Aceptado')
+  }
+
+  async requestCamera() {
+    this.permission.requestPermission('android.permission.READ_MEDIA_IMAGES').then(result => {
+      if (result.hasPermission) {
+        console.log('Permitido')
+      }
+    })
+  }
+
+  async checkPermissions() {
+    await this.checkStorage();
+    await this.checkCamera();
   }
 
 }

@@ -1,0 +1,82 @@
+ion-refresher-content {
+    background-color: white;
+}
+
+ion-toolbar {
+    --background: #302b63;
+}
+
+.toolbar-container {
+    height: 70px;
+}
+
+.background {
+    background-color: antiquewhite;
+}
+
+.fab-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.incidentButton,
+.taskButton {
+    min-height: 50px;
+    min-width: 40%;
+    margin-top: 1vh;
+    margin-left: 1%;
+    background-color: #845EC2;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 15px;
+}
+
+.taskButton {
+    margin-left: 17%;
+}
+
+ion-label {
+    color: #FBEAFF;
+}
+
+ion-icon {
+    color: #FBEAFF;
+}
+
+ion-content {
+    display: flex;
+    align-items: center;
+}
+
+ion-card {
+    display: flex;
+    margin-left: 10%;
+    margin-top: 6%;
+    max-height: 80%;
+    max-width: 80%;
+}
+
+.cardInfo {
+    background-color: #B39CD0;
+
+}
+
+ion-content::part(background) {
+    background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+}
+
+ion-fab-button {
+    --background: #845EC2;
+}
+
+.backButton {
+    margin-left: 5%;
+    --background: #845EC2;
+}
+
+.cardImage img {
+    height: fit-content;
+    padding: 1%;
+}

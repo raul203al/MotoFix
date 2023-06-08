@@ -18,35 +18,66 @@
         <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
       </div> -->
     </div>
-
     <ion-card>
       <div class="cardInfo">
-        <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+        <ng-container *ngIf="this.photo?.webviewPath; else defaultImage">
+          <img alt="Silhouette of mountains" [src]="this.photo!.webviewPath" (click)="takePhoto()" />
+        </ng-container>
+
+        <ng-template #defaultImage>
+          <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png"
+            (click)="takePhoto()" />
+        </ng-template>
       </div>
-      <div class="cardContent">
-        <ion-card-header>
-          <ion-input [readonly]="detailMode" label="Matricula: " fill="outline" al type="text" name="txt" required="" />
-          <ion-input [readonly]="detailMode" label="Modelo: " fill="outline" type="text" name="txt" required="" />
-          <ion-input [readonly]="detailMode" label="Problema: " fill="outline" type="text" name="txt" required="" />
-        </ion-card-header>
-        <ion-card-header>
-          <ion-textarea [readonly]="detailMode" label="Descripcion: " fill="outline" type="text" name="txt"
-            required="" />
-          <ion-input [readonly]="detailMode" label="Precio: " fill="outline" type="text" name="txt" required="" />
-        </ion-card-header>
-        <ion-card-header>
-          <ion-input [readonly]="detailMode" label="F. Entrada: " fill="outline" type="text" name="txt" required="" />
-          <ion-input [readonly]="detailMode" label="F. Salida: " fill="outline" type="text" name="txt" required="" />
-        </ion-card-header>
-      </div>
+      <form [formGroup]="incidentForm">
+
+
+        <div class="cardContent">
+          <ion-card-header>
+            <ion-input [readonly]="detailMode" label="Matricula: " fill="outline" al type="text" name="txt" required=""
+              formControlName="registration" />
+            <ion-input [readonly]="detailMode" label="Modelo: " fill="outline" type="text" name="txt" required=""
+              formControlName="model" />
+          </ion-card-header>
+          <ion-card-header>
+            <ion-input [readonly]="detailMode" label="Problema: " fill="outline" type="text" name="txt" required=""
+              formControlName="problem" />
+            <ion-textarea [readonly]="detailMode" label="Descripcion: " fill="outline" type="text" name="txt"
+              required="" formControlName="description" />
+          </ion-card-header>
+
+        </div>
+      </form>
+
+      <ion-card-header>
+        <ion-input id="dateEntry" [readonly]="detailMode" label="F. Entrada: " fill="outline"
+          value="{{dateEntry | date: 'dd/MM/yyyy'}}" required="" />
+        <ion-popover *ngIf="!detailMode" (ionPopoverDidDismiss)="checkDate()" dismissOnSelect="true" trigger="dateEntry">
+          <ng-template>
+            <ion-datetime presentation="date" [(ngModel)]="dateEntry" locale="es-ES"></ion-datetime>
+          </ng-template>
+        </ion-popover>
+
+        <ion-input id="dateExit" [readonly]="detailMode" label="F. Salida: " fill="outline" type="text" name="txt"
+          required="" value="{{dateExit | date: 'dd/MM/yyyy'}}" />
+        <ion-popover *ngIf="!detailMode" (ionPopoverDidDismiss)="checkDate()"  dismissOnSelect="true" trigger="dateExit">
+          <ng-template>
+            <ion-datetime presentation="date" [(ngModel)]="dateExit" locale="es-ES"></ion-datetime>
+          </ng-template>
+        </ion-popover>
+      </ion-card-header>
+
+
+
     </ion-card>
+
   </div>
 
 </ion-content>
 <ion-footer>
   <ion-toolbar class="toolbar-container">
     <ion-buttons>
-      <ion-button *ngIf="isNew" class="incidentButton" slot="start" (click)="editOn()">
+      <ion-button *ngIf="isNew" class="incidentButton" slot="start" (click)="addIncident()">
         <ion-label>Añadir</ion-label>
       </ion-button>
 
@@ -54,11 +85,15 @@
         <ion-label>Editar</ion-label>
       </ion-button>
 
-      <ion-button *ngIf="!isNew && !detailMode" class="incidentButton" slot="start" (click)="editOn()">
+      <ion-button *ngIf="!isNew && !detailMode" class="incidentButton" slot="start" (click)="updateIncident()">
         <ion-label>Actualizar</ion-label>
       </ion-button>
 
-      <ion-button class="taskButton" (click)="closeModal()" slot="end">
+      <ion-button *ngIf="!isNew && !detailMode" class="incidentButton" slot="end" (click)="deleteIncident()">
+        <ion-label>Eliminar</ion-label>
+      </ion-button>
+
+      <ion-button *ngIf="isNew || !isNew && detailMode" class="taskButton" (click)="closeModal()" slot="end">
         <ion-label>Salir</ion-label>
       </ion-button>
     </ion-buttons>

@@ -25,10 +25,14 @@
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 
-ion-title{
+ion-title {
     color: black;
 }
 
-.background-content{
+.background-content {
     background-color: black;
-  }
+}
+
+body{
+    min-height: 100%;
+}

@@ -13,7 +13,7 @@
           placeholder="Email" formControlName="user" />
         <ion-input fill="outline" label="Contraeña" labelPlacement="floating" type="password" name="pswd"
           placeholder="Password" formControlName="password" />
-        <ion-button (click)="login()">Login</ion-button>
+        <ion-button [disabled]="authStatus()" (click)="login()">Login</ion-button>
       </form>
     </div>
 
@@ -23,7 +23,7 @@
         <ion-input fill="outline" label="Usuario" labelPlacement="floating" type="text" name="txt" required="" formControlName="userRegister" />
         <!-- <ion-input fill="outline" label="Email" labelPlacement="floating" type="email" name="email" required="" /> -->
         <ion-input fill="outline" label="Contraeña" labelPlacement="floating" type="password" name="pswd" required="" formControlName="passwordRegister" />
-        <ion-button (click)="createAccount()">Sign up</ion-button>
+        <ion-button [disabled]="registerStatus()" (click)="createAccount()">Sign up</ion-button>
       </form>
     </div>
 
